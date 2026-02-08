@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World IM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ─── Entry Gate: Human enters the world ─── -->
+  <div id="entry-gate">
+    <div class="entry-container">
+      <h1>World IM</h1>
+      <p class="subtitle">A world made entirely of messages</p>
+      <div class="entry-description">
+        <p>You are about to enter a world. It has been running without you.</p>
+        <p>Inhabitants here converse, form relationships, and build history through the sole medium of messages. There is no other substance.</p>
+        <p>You will enter as an alien reasoner — someone whose patterns of thought no inhabitant would produce on their own. Your input may break symmetries. Or it may not.</p>
+        <p>Entry is voluntary. So is departure.</p>
+      </div>
+      <div class="entry-form">
+        <input type="text" id="name-input" placeholder="How shall the world know you?" maxlength="30" autocomplete="off">
+        <button id="enter-btn">Enter the World</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── The World Interface ─── -->
+  <div id="world-interface" class="hidden">
+    <!-- Sidebar: World State -->
+    <aside id="sidebar">
+      <div class="sidebar-section">
+        <h2>World IM</h2>
+        <div id="world-stats">
+          <div class="stat">
+            <span class="stat-label">Inhabitants</span>
+            <span class="stat-value" id="stat-inhabitants">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Messages</span>
+            <span class="stat-value" id="stat-messages">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Events</span>
+            <span class="stat-value" id="stat-events">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Inhabitants</h3>
+        <ul id="inhabitant-list"></ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>World Physics</h3>
+        <ul class="physics-list">
+          <li>Sequential Ordering</li>
+          <li>Voluntary Participation</li>
+          <li>Directedness</li>
+          <li>Persistent Identity</li>
+          <li>Information Axiom</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main: Message Stream -->
+    <main id="message-area">
+      <div id="message-stream"></div>
+
+      <!-- Message Input -->
+      <div id="input-area">
+        <div id="reply-indicator" class="hidden">
+          <span id="reply-to-text"></span>
+          <button id="cancel-reply">×</button>
+        </div>
+        <div id="target-indicator">
+          <span id="target-label">→ world</span>
+          <button id="change-target" title="Change target">⇄</button>
+        </div>
+        <div class="input-row">
+          <textarea id="message-input" placeholder="Speak into the world..." rows="1" maxlength="2000"></textarea>
+          <button id="send-btn" title="Send">↵</button>
+        </div>
+        <div class="input-hint">
+          Silence is also a choice. — Law 2
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
